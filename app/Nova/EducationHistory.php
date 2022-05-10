@@ -52,13 +52,21 @@ class EducationHistory extends Resource
             Text::make('city'),
             // StateSelect::make('State'),
             Select::make('state')->options(
-               EducationModel::getStates()
+             getStates()
             ),
             Text::make('degree_name'),
-            Select::make('start_month'),
-            DateTime::make('start_year')->hideFromIndex(),
-            DateTime::make('grad_month')->hideFromIndex(),
-            DateTime::make('grad_year')->hideFromIndex(),
+            Select::make('start_month')->options(
+                getMonths()
+        ),
+            Select::make('start_year')->options(
+                getYears()
+            ),
+            Select::make('grad_month')->options(
+                getMonths()
+        ),
+            Select::make('grad_year')->options(
+                getYears()
+            ),
 
         ];
 

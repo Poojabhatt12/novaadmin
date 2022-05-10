@@ -92,3 +92,18 @@ function getStates($value = '', $select = 'Select States')
 
     return $states;
 }
+
+function getYears($endYear = 0, $sort = 0)
+{
+    $currentYear = date('Y') + 3;
+    $endYear = 1970;
+    $year = [];
+    $year[''] = 'Select';
+    for ($currentYear; $currentYear >= $endYear; $currentYear--) {
+        $year[$currentYear] = $currentYear;
+    }
+    if ($sort) {
+        asort($year);
+    }
+    return $year;
+}

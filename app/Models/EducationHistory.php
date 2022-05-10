@@ -14,6 +14,9 @@ class EducationHistory extends Model
 public static function getStates(){
     return getStates();
 }
+public static function getYears(){
+    return getYears();
+}
 
 
 }
