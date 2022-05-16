@@ -17,6 +17,9 @@ public static function getStates(){
 public static function getYears(){
     return getYears();
 }
-
+public function customer()
+{
+    return $this->belongsTo(Customer::class, 'id_customer', 'id_customer');
+}
 
 }

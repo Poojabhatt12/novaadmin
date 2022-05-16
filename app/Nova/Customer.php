@@ -4,30 +4,25 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Trix;
-use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use App\Models\EducationHistory as EducationModel;
 
-class EducationHistory extends Resource
+class Customer extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\EducationHistory::class;
+    public static $model = \App\Models\Customer::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'education_history_id';
+    public static $title = 'id_customer';
 
     /**
      * The columns that should be searched.
@@ -35,7 +30,7 @@ class EducationHistory extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id','first_name'
     ];
 
     /**
@@ -47,33 +42,24 @@ class EducationHistory extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make('education_history_id')->sortable(),
-            Text::make('school')->sortable()->rules('required'),
+            ID::make('id_customer')->sortable(),
+            Text::make('first_name'),
+            Text::make('last_name'),
+            Text::make('email'),
+            HasMany::make('EducationHistories'),
+            HasMany::make('Licenses','nursingLicenses'),
+            HasMany::make('ClinicalCertifications'),
+            HasMany::make('ClinicalExperiences'),
+            // HasMany::make('ClinicalUnits'),
+
+
+
             
-            Text::make('city')->rules('required'),
-          
-            Select::make('state')->options(
-             getStates()
-            )->rules('required'),
-            Text::make('degree_name')->rules('required'),
-            Select::make('start_month')->options(
-                getMonths()
-            )->rules('required'),
-            Select::make('start_year')->options(
-                getYears()
-            )->rules('required'),
-            Select::make('grad_month')->options(
-                getMonths()
-            
-                )->rules('required'),
-            Select::make('grad_year')->options(
-                getYears()
-            )->rules('required'),
-            BelongsTo::make('Customer','customer', 'App\Nova\Customer'),
+
+
+    
+
         ];
-
-        
-
     }
 
     /**

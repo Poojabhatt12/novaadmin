@@ -107,3 +107,21 @@ function getYears($endYear = 0, $sort = 0)
     }
     return $year;
 }
+function getLicenseTypeOptions()
+{
+    return [
+        '' => 'Select License Type',
+        'RN' => 'RN',
+        'NP' => 'NP',
+        'LPN/LVN' => 'LPN/LVN',
+        'CST' => 'CST',
+        'OT' => 'OT',
+        'PT' => 'PT',
+        'RT' => 'RT'
+    ];
+    // return [
+    //     // 'id'            => $clinicalUnit->id_clinical_unit,
+    //     // 'clinical_name' => $clinicalUnit->clinical_name,
+    //     'detail'        => $clinicalUnit->detail,
+    // ];
+}

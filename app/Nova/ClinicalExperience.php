@@ -4,30 +4,26 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use App\Models\EducationHistory as EducationModel;
 
-class EducationHistory extends Resource
+class ClinicalExperience extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\EducationHistory::class;
+    public static $model = \App\Models\ClinicalExperience::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'education_history_id';
+    public static $title = 'clinical_experience';
 
     /**
      * The columns that should be searched.
@@ -47,33 +43,11 @@ class EducationHistory extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make('education_history_id')->sortable(),
-            Text::make('school')->sortable()->rules('required'),
-            
-            Text::make('city')->rules('required'),
-          
-            Select::make('state')->options(
-             getStates()
-            )->rules('required'),
-            Text::make('degree_name')->rules('required'),
-            Select::make('start_month')->options(
-                getMonths()
-            )->rules('required'),
-            Select::make('start_year')->options(
-                getYears()
-            )->rules('required'),
-            Select::make('grad_month')->options(
-                getMonths()
-            
-                )->rules('required'),
-            Select::make('grad_year')->options(
-                getYears()
-            )->rules('required'),
+            ID::make('id_experience')->sortable(),
+            Text::make('clinical_unit'),
+            // BelongsTo::make('ClinicalUnit','clinicalUnit', 'App\Nova\ClinicalUnit'),
             BelongsTo::make('Customer','customer', 'App\Nova\Customer'),
         ];
-
-        
-
     }
 
     /**
