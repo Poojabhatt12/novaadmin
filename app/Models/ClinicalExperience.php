@@ -12,9 +12,13 @@ class ClinicalExperience extends Model
     protected $primaryKey = 'id_experience';
 
     public function customer()
-{
-    return $this->belongsTo(Customer::class, 'id_customer', 'id_customer');
-}
+    {
+       return $this->belongsTo(Customer::class, 'id_customer', 'id_customer');
+    }
+//     public function clinicalUnit()
+//    {
+//      return $this->belongsTo(ClinicalUnit::class, 'id_clinical_unit', '')
+//    }
 
 // public function clinical()
 // {

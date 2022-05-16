@@ -50,7 +50,7 @@ class Customer extends Resource
             HasMany::make('Licenses','nursingLicenses'),
             HasMany::make('ClinicalCertifications'),
             HasMany::make('ClinicalExperiences'),
-            // HasMany::make('ClinicalUnits'),
+            
 
 
 

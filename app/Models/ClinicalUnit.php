@@ -10,10 +10,10 @@ class ClinicalUnit extends Model
     use HasFactory;
     protected $table = 'clinical_unit';
     protected $primaryKey = 'id_clinical_unit';
-  
-    public function customer()
+
+    public function profession()
     {
-        return $this->belongsTo(Customer::class, 'id_customer', 'id_customer');
+        return $this->belongsTo(Profession::class, 'profession_id');
     }
-    
+   
 }

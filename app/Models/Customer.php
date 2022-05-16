@@ -27,9 +27,9 @@ class Customer extends Model
     {
         return $this->hasMany(ClinicalExperience::class, 'id_customer', 'id_customer');
     }
-    public function clinicalUnits()
-    {
-        return $this->hasMany(ClinicalExperience::class, 'id_customer', 'id_customer');
-    }
+    // public function clinicalUnits()
+    // {
+    //     return $this->hasMany(ClinicalExperience::class, 'id_customer', 'id_customer');
+    // }
     
 }

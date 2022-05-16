@@ -58,13 +58,11 @@ class License extends Resource
             Boolean::make('multi_state')
             ->trueValue('1')
             ->falseValue('0'),
-            
             Text::make('license_no'),
             File::make('attachment'),
             Select::make('license_type')->options(
             getLicenseTypeOptions()
             ),
-
             BelongsTo::make('Customer','customer', 'App\Nova\Customer'),
         ];
         

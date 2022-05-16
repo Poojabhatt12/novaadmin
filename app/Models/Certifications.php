@@ -11,8 +11,4 @@ class Certifications extends Model
     protected $table = 'certifications';
     protected $primaryKey = 'id_certifications';
 
-  
-  
-    
-
 }

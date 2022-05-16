@@ -2,29 +2,27 @@
 
 namespace App\Nova;
 
-use App\Nova\Customer;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
-use App\Nova\ClinicalCertification;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class ClinicalCertification extends Resource
+class Profession extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\ClinicalCertification::class;
+    public static $model = \App\Models\Profession::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'clinical_certification';
-    
+    public static $title = 'name';
 
     /**
      * The columns that should be searched.
@@ -44,15 +42,9 @@ class ClinicalCertification extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make('id_clinical_certification')->sortable(),
-            
-            BelongsTo::make('Customer','customer', 'App\Nova\Customer'),
-            BelongsTo::make('Certifications','certifications', 'App\Nova\Certifications'),
-
-           
+            ID::make('id')->sortable(),
+            Text::make('name'),
         ];
-
-
     }
 
     /**
