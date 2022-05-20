@@ -2,8 +2,16 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate;
+use App\Nova\JobVerified;
+use App\Nova\User;
+use App\Nova\Account;
+use App\Nova\Customer;
 use Laravel\Nova\Nova;
+use Illuminate\Http\Request;
+use Laravel\Nova\Menu\MenuItem;
+use Laravel\Nova\Dashboards\Main;
+use Laravel\Nova\Menu\MenuSection;
+use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
@@ -16,6 +24,22 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+    
+        Nova::mainMenu(function (Request $request) {
+            return [
+                MenuSection::dashboard(Main::class)->icon('chart-bar'),
+
+                    MenuItem::resource(Customer::class),
+                    MenuItem::resource(User::class),
+                    MenuItem::resource(Account::class),
+                    MenuItem::resource(JobVerified::class),
+
+                     MenuSection::make('Content', [
+                    // MenuItem::resource(Series::class),
+                    // MenuItem::resource(Release::class),
+                ])->icon('document-text')->collapsable(),
+            ];
+        });
     }
 
     /**
