@@ -15,14 +15,8 @@ class ClinicalExperience extends Model
     {
        return $this->belongsTo(Customer::class, 'id_customer', 'id_customer');
     }
-//     public function clinicalUnit()
-//    {
-//      return $this->belongsTo(ClinicalUnit::class, 'id_clinical_unit', '')
-//    }
-
-// public function clinical()
-// {
-//     return $this->belongsTo(ClinicalUnit::class,'clinical_unit','id_clinical_unit');
-// }
-
+    // public function clinicalUnit()
+    // {
+    //    return $this->belongsTo(ClinicalUnit::class, 'id_customer', 'id_customer');
+    // }
 }

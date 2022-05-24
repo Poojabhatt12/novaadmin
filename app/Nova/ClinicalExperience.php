@@ -46,6 +46,7 @@ class ClinicalExperience extends Resource
             ID::make('id_experience')->sortable(),
             Text::make('clinical_unit'),
             BelongsTo::make('Customer','customer', 'App\Nova\Customer'),
+            // BelongsTo::make('ClinicalUnit','clinicalUnit', 'App\Nova\ClinicalUnit'),
         ];
     }
 

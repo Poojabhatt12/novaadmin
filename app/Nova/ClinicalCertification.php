@@ -45,7 +45,6 @@ class ClinicalCertification extends Resource
     {
         return [
             ID::make('id_clinical_certification')->sortable(),
-            
             BelongsTo::make('Customer','customer', 'App\Nova\Customer'),
             BelongsTo::make('Certifications','certifications', 'App\Nova\Certifications'),
 

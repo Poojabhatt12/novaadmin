@@ -19,5 +19,8 @@ class ClinicalUnit extends Model
     {
         return $this->hasMany(PayPackage::class, 'clinical_unit', 'id_clinical_unit');
     }
-  
+    // public function clinicalExperience()
+    // {
+    //     return $this->hasMany(ClinicalExperience::class, 'clinical_unit', 'id_clinical_unit');
+    // }
 }
