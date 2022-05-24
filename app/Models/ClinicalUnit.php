@@ -15,5 +15,9 @@ class ClinicalUnit extends Model
     {
         return $this->belongsTo(Profession::class, 'profession_id');
     }
-   
+    public function payPackages()
+    {
+        return $this->hasMany(PayPackage::class, 'clinical_unit', 'id_clinical_unit');
+    }
+  
 }

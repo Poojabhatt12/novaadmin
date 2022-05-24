@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -50,26 +51,26 @@ class JobVerified extends Resource
             Text::make('account_name'),
             Text::make('account_id'),
             Text::make('job_id'),
+
             Text::make('vms_id'),
-            Select::make('state')->options(
-             getStates()
-            ),
+            Select::make('state')->options(getStates()),
             Text::make('zip'),
             Select::make('rate_type')->options(getRateTypes()),
+
             Select::make('clinical_unit')->options(getClinicalUnits()),
-            
             Select::make('status')->options(getStatus()),
             Select::make('shift_category')->options(getShiftCategories()),
             Text::make('parent_account'),
+
             Select::make('assignment_duration')->options(getAssignmentDuration()),
             Text::make('bullhornid'),
             Select::make('vms_name')->options(getVmsNames()),
             Text::make('filename'),
+
             Date::make('start_date'),
             Date::make('end_date'),
-        
-            // BelongsTo::make('Account','account', 'App\Nova\Account'),
-            
+            HasMany::make('PayPackages'),
+            HasMany::make('Submission'),
         ];
     }
 

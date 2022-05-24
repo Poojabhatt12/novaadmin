@@ -22,7 +22,7 @@ class Customer extends Resource
      *
      * @var string
      */
-    public static $title = 'id_customer';
+    public static $title = 'first_name';
 
     /**
      * The columns that should be searched.
@@ -46,19 +46,14 @@ class Customer extends Resource
             Text::make('first_name'),
             Text::make('last_name'),
             Text::make('email'),
+
             HasMany::make('EducationHistories'),
             HasMany::make('Licenses','nursingLicenses'),
             HasMany::make('ClinicalCertifications'),
             HasMany::make('ClinicalExperiences'),
-            
 
-
-
-            
-
-
-    
-
+            HasMany::make('PayPackages'),
+            HasMany::make('Submissions'),
         ];
     }
 

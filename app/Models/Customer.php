@@ -14,7 +14,6 @@ class Customer extends Model
     {
         return $this->hasMany(EducationHistory::class, 'id_customer', 'id_customer');
     }
-
     public function nursingLicenses()
     {
         return $this->hasMany(License::class, 'id_customer', 'id_customer');
@@ -27,9 +26,13 @@ class Customer extends Model
     {
         return $this->hasMany(ClinicalExperience::class, 'id_customer', 'id_customer');
     }
-    // public function clinicalUnits()
-    // {
-    //     return $this->hasMany(ClinicalExperience::class, 'id_customer', 'id_customer');
-    // }
+    public function payPackages()
+    {
+        return $this->hasMany(PayPackage::class, 'customer_id', 'id_customer');
+    }
+    public function submission()
+    {
+        return $this->hasMany(Submission::class, 'customer_id', 'id_customer');
+    }
     
 }

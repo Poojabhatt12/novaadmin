@@ -5,26 +5,25 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class ClinicalUnit extends Resource
+class PayPackage extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\ClinicalUnit::class;
+    public static $model = \App\Models\PayPackage::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'clinical_name';
+    public static $title = 'package_id';
 
     /**
      * The columns that should be searched.
@@ -44,11 +43,12 @@ class ClinicalUnit extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make('id_clinical_unit')->sortable(),
-            Text::make('clinical_name'),
-            Text::make('detail'),
-            BelongsTo::make('Profession','profession', 'App\Nova\Profession'),
-            HasMany::make('PayPackages'),
+            ID::make('package_id')->sortable(),
+            BelongsTo::make('Customer','customer', 'App\Nova\Customer'),
+            BelongsTo::make(' JobVerified','jobVerified', 'App\Nova\JobVerified'),
+            BelongsTo::make(' Account','account', 'App\Nova\Account'),
+            BelongsTo::make(' ClinicalUnit','clinicalUnit', 'App\Nova\ClinicalUnit'),
+            HasMany::make('Submission'),
         ];
     }
 

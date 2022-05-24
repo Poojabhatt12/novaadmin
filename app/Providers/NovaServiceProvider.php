@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
-use App\Nova\JobVerified;
 use App\Nova\User;
 use App\Nova\Account;
 use App\Nova\Customer;
 use Laravel\Nova\Nova;
+use App\Nova\PayPackage;
+use App\Nova\Submission;
+use App\Nova\JobVerified;
 use Illuminate\Http\Request;
 use Laravel\Nova\Menu\MenuItem;
 use Laravel\Nova\Dashboards\Main;
@@ -33,6 +35,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuItem::resource(User::class),
                     MenuItem::resource(Account::class),
                     MenuItem::resource(JobVerified::class),
+                    MenuItem::resource(PayPackage::class),
+                    MenuItem::resource(Submission::class),
 
                      MenuSection::make('Content', [
                     // MenuItem::resource(Series::class),

@@ -25,7 +25,6 @@ class JobVerified extends Model
     public static function  getClinicalUnits(){
         return getClinicalUnits();
     }
-
     public static function  getAssignmentDuration(){
         return getAssignmentDuration();
     }
@@ -38,10 +37,12 @@ class JobVerified extends Model
     public static function getVmsNames(){
         return getVmsNames();
     }
-    
-//     public function account()
-// {
-//     return $this->belongsTo(Account::class, 'account_id', 'account_id');
-// }
-
+    public function payPackages()
+    {
+        return $this->hasMany(PayPackage::class, 'job_id', 'id_job_verified');
+    }
+    public function submission()
+    {
+        return $this->hasMany(PayPackage::class, 'job_id', 'id_job_verified');
+    }
 }

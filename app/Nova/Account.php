@@ -24,7 +24,7 @@ class Account extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'account_name';
 
     /**
      * The columns that should be searched.
@@ -54,6 +54,7 @@ class Account extends Resource
             Text::make('account_manager'),
             Text::make('details'),
             // HasMany::make('JobVerifieds'),
+            HasMany::make('PayPackages'),
             
 
 

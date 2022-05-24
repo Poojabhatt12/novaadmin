@@ -11,8 +11,8 @@ class Account extends Model
     protected $table = 'accounts';
     protected $primaryKey = 'id';
     
-    // public function jobVerifieds()
-    // {
-    //     return $this->hasMany(JobVerified::class, 'account_id', 'account_id');
-    // }
+    public function payPackages()
+    {
+        return $this->hasMany(PayPackage::class, 'account_id', 'id_account');
+    }
 }
