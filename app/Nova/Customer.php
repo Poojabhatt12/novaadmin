@@ -22,7 +22,7 @@ class Customer extends Resource
      *
      * @var string
      */
-    public static $title = 'first_name';
+    public static $title = 'full_name';
 
     /**
      * The columns that should be searched.
@@ -30,7 +30,7 @@ class Customer extends Resource
      * @var array
      */
     public static $search = [
-        'id','first_name'
+        'id','full_name'
     ];
 
     /**

@@ -47,25 +47,25 @@ class JobVerified extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make('id_job_verified')->sortable(),
+            // ID::make('id_job_verified')->sortable(),
             Text::make('account_name'),
             Text::make('account_id'),
             Text::make('job_id'),
 
-            Text::make('vms_id'),
+            // Text::make('vms_id'),
             Select::make('state')->options(getStates()),
-            Text::make('zip'),
+            // Text::make('zip'),
             Select::make('rate_type')->options(getRateTypes()),
 
             Select::make('clinical_unit')->options(getClinicalUnits()),
-            Select::make('status')->options(getStatus()),
+            // Select::make('status')->options(getStatus()),
             Select::make('shift_category')->options(getShiftCategories()),
-            Text::make('parent_account'),
+            // Text::make('parent_account'),
 
             Select::make('assignment_duration')->options(getAssignmentDuration()),
-            Text::make('bullhornid'),
-            Select::make('vms_name')->options(getVmsNames()),
-            Text::make('filename'),
+            // Text::make('bullhornid'),
+            // Select::make('vms_name')->options(getVmsNames()),
+            // Text::make('filename'),
 
             Date::make('start_date'),
             Date::make('end_date'),

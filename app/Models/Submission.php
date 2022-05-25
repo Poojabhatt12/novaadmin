@@ -11,6 +11,9 @@ class Submission extends Model
     protected $table = 'submission';
     protected $primaryKey = 'submission_id';
 
+    public static function getStatus(){
+        return getStatus();
+    }
     public function customer()
     {
         return $this->belongsTo(Customer::class, 'customer_id', 'id_customer');

@@ -40,10 +40,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuItem::resource(JobVerified::class),
                     MenuItem::resource(PayPackage::class),
                     MenuItem::resource(Submission::class),
-                    MenuItem::resource(ClinicalExperience::class),
-                    MenuItem::resource(EducationHistory::class),
-                    MenuItem::resource(License::class),
-
+                    
                      MenuSection::make('Content', [
                     // MenuItem::resource(Series::class),
                     // MenuItem::resource(Release::class),

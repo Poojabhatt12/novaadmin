@@ -197,8 +197,7 @@ function getAssignmentDuration()
 function getStatus()
 {
     return[
-        'Weekly Hours' => 'Select Status',
-        'Select Status' => 'Select Status',       
+        'Weekly Hours' => 'Select Status',       
         'Open' => 'Open',
         'Closed' => 'Closed',
         'Suspended' => 'Suspended',

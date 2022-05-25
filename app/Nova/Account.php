@@ -48,27 +48,14 @@ class Account extends Resource
             Text::make('account_name'),
             Select::make('type')->options(getParentAccount()),
             Text::make('parent'),
-            Text::make('description'),
+            // Text::make('description'),
             Number::make('stipend_min'),
             Number::make('stipend_max'),
             Text::make('account_manager'),
-            Text::make('details'),
+            // Text::make('details'),
             // HasMany::make('JobVerifieds'),
             HasMany::make('PayPackages'),
             
-
-
-
-
-
-            
-
-
-
-            
-
-
-
         ];
     }
 

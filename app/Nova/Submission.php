@@ -6,6 +6,7 @@ use App\Nova\PayPackage;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -47,7 +48,7 @@ class Submission extends Resource
             BelongsTo::make('Customer','customer', 'App\Nova\Customer'),
             BelongsTo::make(' JobVerified','jobVerified', 'App\Nova\JobVerified'),
             BelongsTo::make(' PayPackage','paypackage', 'App\Nova\PayPackage'),
-            Text::make('status'),
+            Select::make('status')->options(getStatus()),
         ];
     }
 
