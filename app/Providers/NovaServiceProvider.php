@@ -7,6 +7,7 @@ use App\Nova\Account;
 use App\Nova\License;
 use App\Nova\Customer;
 use Laravel\Nova\Nova;
+use App\Nova\Placement;
 use App\Nova\PayPackage;
 use App\Nova\Submission;
 use App\Nova\JobVerified;
@@ -40,6 +41,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuItem::resource(JobVerified::class),
                     MenuItem::resource(PayPackage::class),
                     MenuItem::resource(Submission::class),
+                    MenuItem::resource(Placement::class),
                     
                      MenuSection::make('Content', [
                     // MenuItem::resource(Series::class),
