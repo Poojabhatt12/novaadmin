@@ -5,7 +5,9 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\HasOneThrough;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Placement extends Resource
@@ -45,7 +47,11 @@ class Placement extends Resource
             ID::make('placement_id')->sortable(),
             BelongsTo::make(' Submission','submission', 'App\Nova\Submission'),
             Text::make('placed_by'),
-            Text::make('placement_status'),
+            Select::make('placement_status')->options(getStatus()),
+            // HasOneThrough::make('Customer'),
+            Text::make('Customer Name','submission.customer.full_name')->onlyOnIndex(),
+
+
         ];
     }
 
@@ -90,6 +96,10 @@ class Placement extends Resource
      */
     public function actions(NovaRequest $request)
     {
-        return [];
+        return [
+            new Actions\PlacementStatusChange
+            
+
+        ];
     }
 }
