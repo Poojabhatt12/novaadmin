@@ -26,13 +26,9 @@ class PlacementStatusChange extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach ($models as $model) {
-        //   update the status of placement
-        $model->update(['placement_status'=>$fields->placement_status]);
-        return Action::message('Placement Status Successfully Changed!');
-
-
+            $model->update(['placement_status'=>$fields->placement_status]);
         }
-        // dd($fields->placement_status);
+        return Action::message('Placement Status Successfully Changed!');
     }
 
     /**
