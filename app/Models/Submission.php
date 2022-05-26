@@ -10,6 +10,7 @@ class Submission extends Model
     use HasFactory;
     protected $table = 'submission';
     protected $primaryKey = 'submission_id';
+    protected $fillable = ['status'];
 
     public static function getStatus(){
         return getStatus();

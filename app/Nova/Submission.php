@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Nova\Actions\SubmissionStatusChange;
 
 class Submission extends Resource
 {
@@ -93,6 +94,9 @@ class Submission extends Resource
      */
     public function actions(NovaRequest $request)
     {
-        return [];
+        return [
+
+            new Actions\SubmissionStatusChange
+        ];
     }
 }
