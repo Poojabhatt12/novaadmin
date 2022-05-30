@@ -247,4 +247,174 @@ function getVmsNames()
     ];
 }
 
+function getSubmissionStatus()
+{
+    $status = [
+        'Submitted to Account Manager' => 'Submitted to Account Manager',
+        'Submitted to Hiring Manager' => 'Submitted to Hiring Manager',
+        'Interviewing' => 'Interviewing',
+        'Interviewed - Awaiting Feedback' => 'Interviewed - Awaiting Feedback',
+        'Offer in Progress' => 'Offer in Progress',
+        'Pending Approval' => 'Pending Approval',
+        'Awaiting Contract' => 'Awaiting Contract',
+        'Market Submittal to Account Manager' => 'Market Submittal to Account Manager',
+        'Market Submittal to Client' => 'Market Submittal to Client',
+        'Extension Submitted to Account Manager' => 'Extension Submitted to Account Manager',
+        'Extension Submitted to Client' => 'Extension Submitted to Client',
+        'Awaiting Interview' => 'Awaiting Interview',
+        'Offer Accepted' => 'Offer Accepted',
+    ];
+       return $status;
+    }
 
+    function getPlacementStatus()
+{
+    $status = [
+        'Assignment Completed' => 'Assignment Completed',
+        'Assignment Ended Early' => 'Assignment Ended Early',
+        'Assignment Complete But Decline Extension' => 'Assignment Complete But Decline Extension',
+        'Extension Or Other Assignment' => 'Extension Or Other Assignment',
+        'Terminated by Client-Clinical' => 'Terminated by Client-Clinical',
+        'Terminated by Client- Professional' => 'Terminated by Client- Professional',
+        'Resigned' => 'Resigned',
+        'Walked Off' => 'Walked Off',
+        'Contract Declined after Acceptance' => 'Contract Declined after Acceptance',
+        'Assignment Never Started' => 'Assignment Never Started',
+        'Assignment Never Started - Hospital Cancel' => 'Assignment Never Started - Hospital Cancel',
+        'Change in Need - Hospital Cancel' => 'Change in Need - Hospital Cancel',
+        'Hired By Client' => 'Hired By Client',
+        'Contract Revision - Signature' => 'Contract Revision - Signature',
+//        'Contract Change Bill-Rate'                  => 'Contract Change Bill-Rate'
+
+    ];
+
+    return $status;
+}
+function getAccountStatus()
+{
+    return[
+        '' => 'Select Status',
+        'Active' => 'Active',
+        'InActive' => 'InActive',
+        'Hold' => 'Hold',
+        'Financial' => 'Financial',
+    ];
+}
+
+function getTravelExperience()
+{
+    return[
+        '' => 'Select Status',
+        'Yes' => 'Yes',
+        'No' => 'No',
+       
+    ];
+}
+function getMagnateRequired()
+{
+    return[
+        '' => 'Select',
+        'Yes' => 'Yes',
+        'No' => 'No',
+       
+    ];
+}
+function getBSNRequired()
+{
+    return[
+        '' => 'Select',
+        'Yes' => 'Yes',
+        'No' => 'No',
+       
+    ];
+}
+function getTeachingHospital()
+{
+    return[
+        '' => 'Select Status',
+        'Yes' => 'Yes',
+        'No' => 'No',
+       
+    ];
+}
+
+function getTraumaLevel()
+{
+    return[
+        'Select Trauma Level' => 'Select Trauma Level',
+        '1' => '1',
+        '2' => '2',
+        '3' => '3',
+        '4' => '4',
+       
+    ];
+}
+
+function getChartingExperience()
+{
+    return [
+        '' => 'Select',
+        'Allscripts' => 'Allscripts',
+        'Amazing Charts' => 'Amazing Charts',
+        'Athenahealth' => 'Athenahealth',
+        'AutoCad' => 'AutoCad',
+        'Care360' => 'Care360',
+        'CareConnect' => 'CareConnect',
+        'Centricity' => 'Centricity',
+        'Centrix' => 'Centrix',
+        'Cerner' => 'Cerner',
+        'Citrix' => 'Citrix',
+        'CPSI' => 'CPSI',
+        'eChart' => 'eChart',
+        'eClinicalWorks' => 'eClinicalWorks',
+        'Eclipsys' => 'Eclipsys',
+        'eMar' => 'eMar',
+        'EPIC' => 'EPIC',
+        'ErrorWin' => 'ErrorWin',
+        'Essentris' => 'Essentris',
+        'GE Healthcare' => 'GE Healthcare',
+        'Greenway' => 'Greenway',
+        'Hmed' => 'Hmed',
+        'Ibex' => 'Ibex',
+        'Marion' => 'Marion',
+        'McKesson' => 'McKesson',
+        'Medhost' => 'Medhost',
+        'Meditech' => 'Meditech',
+        'NextGen' => 'NextGen',
+        'Nuesoft' => 'Nuesoft',
+        'Obix' => 'Obix',
+        'OB Trace Vue' => 'OB Trace Vue',
+        'Paper Chart' => 'Paper Chart',
+        'Paragon' => 'Paragon',
+        'Pisces' => 'Pisces',
+        'Power Chart' => 'Power Chart',
+        'PowerDesign' => 'PowerDesign',
+        'Quadramed' => 'Quadramed',
+        'Quest' => 'Quest',
+        'Siemens' => 'Siemens',
+        'SOAPware' => 'SOAPware',
+        'Soarian' => 'Soarian',
+        'Sunrise' => 'Sunrise',
+        'TDS' => 'TDS',
+        'T-System' => 'T-System',
+        'Visio' => 'Visio',
+        'Vitera' => 'Vitera',
+        'Watchchild' => 'Watchchild',
+        'Wellsoft' => 'Wellsoft',
+        'Other' => 'Other',
+    ];
+}
+
+function getHospitalBedSize()
+{
+    $size = [
+        '' => 'Select Hospital Bed Size',
+        '0-50' => '0-50',
+        '50-150' => '50-150',
+        '150-300' => '150-300',
+        '300-500' => '300-500',
+        '500+' => '500+'
+    ];
+
+    return $size;
+}

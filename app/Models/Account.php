@@ -15,4 +15,27 @@ class Account extends Model
     {
         return $this->hasMany(PayPackage::class, 'account_id', 'id_account');
     }
+
+    public static function getAccountStatus(){
+    return getAccountStatus();
+    }
+    // public static function getAccountManager(){
+    // return getAccountManager();
+    // }
+
+      public static function getTravelExperience(){
+    return getAccountStatus();
+    }
+      public static function getTeachingHospital(){
+    return getTeachingHospital();
+    }
+      public static function getTraumaLevel(){
+    return getTraumaLevel();
+    }
+      public static function getHospitalBedSize(){
+    return getHospitalBedSize();
+    }
+      public static function getBSNRequired(){
+    return getBSNRequired();
+    }
 }
