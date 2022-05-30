@@ -49,7 +49,7 @@ class Submission extends Resource
             BelongsTo::make('Customer','customer', 'App\Nova\Customer'),
             BelongsTo::make(' JobVerified','jobVerified', 'App\Nova\JobVerified'),
             BelongsTo::make(' PayPackage','paypackage', 'App\Nova\PayPackage'),
-            Select::make('status')->options(getStatus()),
+            Select::make('status')->options(getSubmissionStatus()),
         ];
     }
 

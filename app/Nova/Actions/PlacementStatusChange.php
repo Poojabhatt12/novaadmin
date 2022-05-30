@@ -26,6 +26,7 @@ class PlacementStatusChange extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach ($models as $model) {
+
             $model->update(['placement_status'=>$fields->placement_status]);
         }
         return Action::message('Placement Status Successfully Changed!');
@@ -40,7 +41,7 @@ class PlacementStatusChange extends Action
     public function fields(NovaRequest $request)
     {
         return [
-            Select::make('placement_status')->options(getStatus()),
+            Select::make('placement_status')->options(getPlacementStatus()),
         ];
     }
 }

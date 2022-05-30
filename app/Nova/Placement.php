@@ -47,7 +47,7 @@ class Placement extends Resource
             ID::make('placement_id')->sortable(),
             BelongsTo::make(' Submission','submission', 'App\Nova\Submission'),
             Text::make('placed_by'),
-            Select::make('placement_status')->options(getStatus()),
+            Select::make('placement_status')->options(getPlacementStatus()),
             // HasOneThrough::make('Customer'),
             Text::make('Customer Name','submission.customer.full_name')->onlyOnIndex(),
 

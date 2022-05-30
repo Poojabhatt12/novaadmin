@@ -39,7 +39,7 @@ class SubmissionStatusChange extends Action
     public function fields(NovaRequest $request)
     {
         return [
-            Select::make('status')->options(getStatus()),
+            Select::make('status')->options(getSubmissionStatus()),
         ];
     }
 }

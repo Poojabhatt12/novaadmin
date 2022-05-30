@@ -12,8 +12,8 @@ class Submission extends Model
     protected $primaryKey = 'submission_id';
     protected $fillable = ['status'];
 
-    public static function getStatus(){
-        return getStatus();
+    public static function getSubmissionStatus(){
+        return getSubmissionStatus();
     }
     public function customer()
     {
