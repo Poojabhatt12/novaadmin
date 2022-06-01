@@ -2,12 +2,14 @@
 
 namespace App\Nova;
 
+use App\Models\Account as AccountModel;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\FormData;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Account extends Resource
@@ -46,9 +48,21 @@ class Account extends Resource
         return [
             ID::make('id')->sortable(),
             Text::make('Account Name'),
-            Select::make('Type')->options(getParentAccount()),
-            Text::make('Parent'),
-            // Text::make('description'),
+         
+            Select::make('Type')->options(getAccounttype()),
+            Select::make('Parent')->options([
+            ])->dependsOn(
+                ['type'],
+                function (Select $field, NovaRequest $request, FormData $formData) {
+                    if ($formData->type === 'A') {
+                        $field->options(AccountModel::getRegionalAccount());
+                    }elseif($formData->type === 'R') {
+                        $field->options(AccountModel::getParentAccount());
+                    }elseif($formData->type === 'P') {
+                        $field->hide();
+                    }
+                }
+            ),
             Number::make('stipend_min'),
             Number::make('stipend_max'),
             Text::make('Account Manager'),

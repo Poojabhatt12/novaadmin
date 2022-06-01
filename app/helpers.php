@@ -127,13 +127,13 @@ function getLicenseTypeOptions()
     //     'detail'        => $clinicalUnit->detail,
     // ];
 }
-function getParentAccount()
+function getAccounttype()
 {
     return[
-    '' => 'Select Type',
-    'P' => 'MSP',
-    'R' => 'Regional',
-    'A' => 'Accounts'
+        '' => 'Select Type',
+        'P' => 'MSP',
+        'R' => 'Regional',
+        'A' => 'Accounts'
     ];
 
 }
@@ -418,3 +418,5 @@ function getHospitalBedSize()
 
     return $size;
 }
+
+

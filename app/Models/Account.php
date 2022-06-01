@@ -26,16 +26,32 @@ class Account extends Model
       public static function getTravelExperience(){
     return getAccountStatus();
     }
+    
       public static function getTeachingHospital(){
     return getTeachingHospital();
     }
+
       public static function getTraumaLevel(){
     return getTraumaLevel();
     }
+
       public static function getHospitalBedSize(){
     return getHospitalBedSize();
     }
       public static function getBSNRequired(){
     return getBSNRequired();
     }
+
+    public static function getRegionalAccount()
+    {
+        $regionalAccount = Account::where('type','R')->get()->pluck('account_name','id_account')->toarray();
+         return $regionalAccount;
+    }
+    
+    public static function getParentAccount()
+    {
+        $parentAccount = Account::where('type','P')->get()->pluck('account_name','id_account')->toarray();
+        return $parentAccount;
+    }
+        
 }
