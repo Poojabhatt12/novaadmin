@@ -43,12 +43,16 @@ class PayPackage extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make('package_id')->sortable(),
+            ID::make('package Id')->sortable(),
             BelongsTo::make('Customer','customer', 'App\Nova\Customer'),
-            BelongsTo::make(' JobVerified','jobVerified', 'App\Nova\JobVerified'),
-            BelongsTo::make(' Account','account', 'App\Nova\Account'),
-            BelongsTo::make(' ClinicalUnit','clinicalUnit', 'App\Nova\ClinicalUnit'),
+            BelongsTo::make(' JobVerified','jobVerified', 'App\Nova\JobVerified')->viewable(false),
+            BelongsTo::make(' Account','account', 'App\Nova\Account')->viewable(false),
+            BelongsTo::make(' ClinicalUnit','clinicalUnit', 'App\Nova\ClinicalUnit')->viewable(false),
+
+
+            
             HasMany::make('Submission'),
+
         ];
     }
 

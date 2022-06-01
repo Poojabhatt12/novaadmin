@@ -45,11 +45,14 @@ class Submission extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make('submission_id')->sortable(),
+            ID::make('Submission Id')->sortable(),
             BelongsTo::make('Customer','customer', 'App\Nova\Customer'),
-            BelongsTo::make(' JobVerified','jobVerified', 'App\Nova\JobVerified'),
-            BelongsTo::make(' PayPackage','paypackage', 'App\Nova\PayPackage'),
-            Select::make('status')->options(getSubmissionStatus()),
+            BelongsTo::make(' JobVerified','jobVerified', 'App\Nova\JobVerified')->viewable(false),
+            BelongsTo::make(' PayPackage','paypackage', 'App\Nova\PayPackage')->viewable(false),
+            Select::make('Status')->options(getSubmissionStatus()),
+            Text::make('Hiring Manager')->hideFromIndex(),
+            Text::make('placement_type')->hideFromIndex(),
+            Text::make('Prev Placement')->hideFromIndex(),
         ];
     }
 

@@ -48,7 +48,6 @@ class Account extends Resource
         return [
             ID::make('id')->sortable(),
             Text::make('Account Name'),
-         
             Select::make('Type')->options(getAccounttype()),
             Select::make('Parent')->options([
             ])->dependsOn(
@@ -63,21 +62,20 @@ class Account extends Resource
                     }
                 }
             ),
-            Number::make('stipend_min'),
-            Number::make('stipend_max'),
-            Text::make('Account Manager'),
-            Select::make('account_status')->options(getAccountStatus()),
-            Select::make('Travel Experience Required')->options(getTravelExperience()),
+            Number::make('Stipend Min')->min(1)->max(1000)->step(0.01)->hideFromIndex(),
+            Number::make('Stipend Max')->min(1)->max(1000)->step(0.01)->hideFromIndex(),
+            Select::make('Account Manager')->options(getAccountManager()),
+            Select::make('Account Status')->options(getAccountStatus()),
+            Select::make('Travel Experience')->options(getTravelExperience())->hideFromIndex(),
             Select::make('Charting System')->options(getChartingExperience()),
-            Select::make('Teaching Hospital')->options(getTeachingHospital()),
-            Select::make('Trauma Level')->options(getTraumaLevel()),
-            Select::make('Hospital Bed')->options(getHospitalBedSize()),
-            Select::make('Magnate')->options(getMagnateRequired()),
-            Select::make('BSN Required')->options(getBSNRequired()),
-            text::make('Selling Point'),
-            // Text::make('details'),
-            // HasMany::make('JobVerifieds'),
+            Select::make('Teaching Hospital')->options(getTeachingHospital())->hideFromIndex(),
+            Select::make('Trauma Level')->options(getTraumaLevel())->hideFromIndex(),
+            Select::make('Number of Beds')->options(getHospitalBedSize())->hideFromIndex(),
+            Select::make('Magnate')->options(getMagnateRequired())->hideFromIndex(),
+            Select::make('BSN')->options(getBSNRequired())->hideFromIndex(),
+            text::make('Selling Point')->hideFromIndex(),
             HasMany::make('PayPackages'),
+           
             
         ];
     }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+
 // use function;
 
 function getMonths()
@@ -417,6 +419,21 @@ function getHospitalBedSize()
     ];
 
     return $size;
+}
+
+function getAccountManager()
+{
+    $select[''] = 'Select Account Manager';
+
+    $managers = User::where('role', 'account-manager')->where('active', 1)->get();
+
+    $ams = [];
+        foreach ($managers as $manager) {
+        $ams[$manager->id] = $manager->first_name . ' ' . $manager->last_name;
+    }
+
+    return $select + $ams;
+    
 }
 
 

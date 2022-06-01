@@ -44,13 +44,13 @@ class Placement extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make('placement_id')->sortable(),
+            ID::make('Placement Id')->sortable(),
             BelongsTo::make(' Submission','submission', 'App\Nova\Submission'),
-            Text::make('placed_by'),
-            Select::make('placement_status')->options(getPlacementStatus()),
+            Text::make('Placed By'),
+            Select::make('Placement Status')->options(getPlacementStatus()),
             // HasOneThrough::make('Customer'),
             Text::make('Customer Name','submission.customer.full_name')->onlyOnIndex(),
-
+            Text::make('Details')->hideFromIndex(),
 
         ];
     }

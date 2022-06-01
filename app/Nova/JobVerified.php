@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Models\Account;
 use App\Nova\JobVerified;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
@@ -48,27 +49,23 @@ class JobVerified extends Resource
     {
         return [
             // ID::make('id_job_verified')->sortable(),
-            Text::make('account_name'),
-            Text::make('account_id'),
-            Text::make('job_id'),
-
-            // Text::make('vms_id'),
-            Select::make('state')->options(getStates()),
-            // Text::make('zip'),
-            Select::make('rate_type')->options(getRateTypes()),
-
-            Select::make('clinical_unit')->options(getClinicalUnits()),
-            // Select::make('status')->options(getStatus()),
-            Select::make('shift_category')->options(getShiftCategories()),
-            // Text::make('parent_account'),
-
-            Select::make('assignment_duration')->options(getAssignmentDuration()),
-            // Text::make('bullhornid'),
-            // Select::make('vms_name')->options(getVmsNames()),
-            // Text::make('filename'),
-
-            Date::make('start_date'),
-            Date::make('end_date'),
+            Text::make('Job Id'),
+            Text::make('account Name'),
+            Select::make('Account Id')->options(Account::getAccounts()),
+            // Text::make('Vms Id')->hideFromIndex(),
+            Select::make('State')->options(getStates()),
+            Text::make('Zip')->hideFromIndex(),
+            Select::make('Rate Type')->options(getRateTypes())->hideFromIndex(),
+            Select::make('Clinical Unit')->options(getClinicalUnits()),
+            Select::make('Status')->options(getStatus())->hideFromIndex(),
+            Select::make('Shift Category')->options(getShiftCategories())->hideFromIndex(),
+            Text::make('Parent Account')->hideFromIndex(),
+            Select::make('Assignment Duration')->options(getAssignmentDuration()),
+            Text::make('Bullhornid Id')->hideFromIndex(),
+            Select::make('Vms Name')->options(getVmsNames())->hideFromIndex(),
+            Text::make('File Name')->hideFromIndex(),
+            Date::make('Start Date'),
+            Date::make('End Date'),
             HasMany::make('PayPackages'),
             HasMany::make('Submission'),
         ];

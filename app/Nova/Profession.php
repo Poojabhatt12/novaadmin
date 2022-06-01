@@ -42,8 +42,8 @@ class Profession extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make('id')->sortable(),
-            Text::make('name'),
+            ID::make('Id')->sortable(),
+            Text::make('Name'),
         ];
     }
 

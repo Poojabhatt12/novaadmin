@@ -15,6 +15,11 @@ class Account extends Model
     {
         return $this->hasMany(PayPackage::class, 'account_id', 'id_account');
     }
+    
+    // public function submissions()
+    // {
+    //     return $this->hasMany(Submission::class, 'account_id', 'id_account');
+    // }
 
     public static function getAccountStatus(){
     return getAccountStatus();
@@ -52,6 +57,11 @@ class Account extends Model
     {
         $parentAccount = Account::where('type','P')->get()->pluck('account_name','id_account')->toarray();
         return $parentAccount;
+    }
+    public static function getAccounts()
+    {
+        $account = Account::where('type','A')->get()->pluck('account_name','id_account')->toarray();
+        return $account;
     }
         
 }
