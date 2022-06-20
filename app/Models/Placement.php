@@ -19,9 +19,4 @@ class Placement extends Model
     {
         return $this->belongsTo(Submission::class, 'submission_id', 'submission_id');
     }
-    // public function customer(){
-    //     return $this->hasOneThrough(Customer::class, Submission::class,'customer_id','submission_id','submission_id','');
-    // }
-    // public static function getStatus(){
-    //     return getStatus();
 }

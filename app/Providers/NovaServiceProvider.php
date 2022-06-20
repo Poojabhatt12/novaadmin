@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Nova\Vms;
 use App\Nova\User;
 use App\Nova\Account;
 use App\Nova\License;
@@ -39,10 +40,12 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuItem::resource(User::class),
                     MenuItem::resource(Account::class),
                     MenuItem::resource(JobVerified::class),
-                    MenuItem::resource(PayPackage::class),
+                    // MenuItem::resource(PayPackage::class),
                     MenuItem::resource(Submission::class),
                     MenuItem::resource(Placement::class),
-                    
+                    // MenuItem::resource(Vms::class),
+
+                
                      MenuSection::make('Content', [
                     // MenuItem::resource(Series::class),
                     // MenuItem::resource(Release::class),

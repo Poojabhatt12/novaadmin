@@ -2,33 +2,26 @@
 
 namespace App\Nova;
 
-use App\Models\Account;
-use App\Nova\JobVerified;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class JobVerified extends Resource
+class Vms extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\JobVerified::class;
+    public static $model = \App\Models\Vms::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id_job_verified';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -48,28 +41,8 @@ class JobVerified extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            // ID::make('id_job_verified')->sortable(),
-            Text::make('Job Id'),
-            Text::make('account Name'),
-            Select::make('Account Id')->options(Account::getAccounts()),
-            Select::make('Account Id')->options(Account::getAccounts()),
-            // Text::make('Vms Id')->hideFromIndex(),
-            BelongsTo::make('Vms','vms', 'App\Nova\Vms')->viewable(false),
-            Select::make('State')->options(getStates()),
-            Text::make('Zip')->hideFromIndex(),
-            Select::make('Rate Type')->options(getRateTypes())->hideFromIndex(),
-            Select::make('Clinical Unit')->options(getClinicalUnits()),
-            Select::make('Status')->options(getStatus())->hideFromIndex(),
-            Select::make('Shift Category')->options(getShiftCategories())->hideFromIndex(),
-            Text::make('Parent Account')->hideFromIndex(),
-            Select::make('Assignment Duration')->options(getAssignmentDuration()),
-            Text::make('Bullhornid Id')->hideFromIndex(),
-            Select::make('Vms Name')->options(getVmsNames())->hideFromIndex(),
-            Text::make('File Name')->hideFromIndex(),
-            Date::make('Start Date'),
-            Date::make('End Date'),
-            HasMany::make('PayPackages'),
-            HasMany::make('Submission'),
+            ID::make('id')->sortable(),
+            HasMany::make('Vms'),
         ];
     }
 
@@ -82,8 +55,6 @@ class JobVerified extends Resource
     public function cards(NovaRequest $request)
     {
         return [];
-
-
     }
 
     /**

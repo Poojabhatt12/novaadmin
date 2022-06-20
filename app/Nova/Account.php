@@ -2,7 +2,6 @@
 
 namespace App\Nova;
 
-use App\Models\Account as AccountModel;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
@@ -10,6 +9,8 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\FormData;
+use App\Models\Account as AccountModel;
+use App\Nova\Actions\AccountManagerChange;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Account extends Resource
@@ -65,18 +66,21 @@ class Account extends Resource
             Number::make('Stipend Min')->min(1)->max(1000)->step(0.01)->hideFromIndex(),
             Number::make('Stipend Max')->min(1)->max(1000)->step(0.01)->hideFromIndex(),
             Select::make('Account Manager')->options(getAccountManager()),
+            Select::make('Clinical Coordinator')->options(getClinicalCoordinator()),
             Select::make('Account Status')->options(getAccountStatus()),
+
             Select::make('Travel Experience')->options(getTravelExperience())->hideFromIndex(),
             Select::make('Charting System')->options(getChartingExperience()),
             Select::make('Teaching Hospital')->options(getTeachingHospital())->hideFromIndex(),
             Select::make('Trauma Level')->options(getTraumaLevel())->hideFromIndex(),
+
             Select::make('Number of Beds')->options(getHospitalBedSize())->hideFromIndex(),
             Select::make('Magnate')->options(getMagnateRequired())->hideFromIndex(),
             Select::make('BSN')->options(getBSNRequired())->hideFromIndex(),
             text::make('Selling Point')->hideFromIndex(),
+
             HasMany::make('PayPackages'),
            
-            
         ];
     }
 
@@ -121,6 +125,10 @@ class Account extends Resource
      */
     public function actions(NovaRequest $request)
     {
-        return [];
+         return [
+            new Actions\AccountManagerChange
+            
+
+        ];
     }
 }

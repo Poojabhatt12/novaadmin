@@ -45,4 +45,8 @@ class JobVerified extends Model
     {
         return $this->hasMany(PayPackage::class, 'job_id', 'id_job_verified');
     }
+    public function vms()
+{
+    return $this->belongsTo(Vms::class, 'vms_id', 'id');
+}
 }

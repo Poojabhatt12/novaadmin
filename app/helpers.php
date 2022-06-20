@@ -435,5 +435,19 @@ function getAccountManager()
     return $select + $ams;
     
 }
+function getClinicalCoordinator()
+{
+    $select[''] = 'Select Clinical Coordinator';
+
+    $managers = User::where('role', 'clinical-coordinator')->where('active', 1)->get();
+
+    $ams = [];
+        foreach ($managers as $manager) {
+        $ams[$manager->id] = $manager->first_name . ' ' . $manager->last_name;
+    }
+
+    return $select + $ams;
+    
+}
 
 
