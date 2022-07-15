@@ -2,12 +2,14 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rules;
-use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Password;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Illuminate\Validation\Rules;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Gravatar;
+use Laravel\Nova\Fields\Password;
+use Faker\Provider\tr_TR\PhoneNumber;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class User extends Resource
@@ -24,7 +26,7 @@ class User extends Resource
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'first_name';
 
     /**
      * The columns that should be searched.
@@ -32,7 +34,7 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id', 'first_name', 'email',
     ];
 
     /**
@@ -45,20 +47,31 @@ class User extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('first_name'),
+            Text::make('last_name'),
+            Text::make('Email')
+            ->sortable()
+            ->rules('required', 'email', 'max:254')
+            ->creationRules('unique:users,email')
+            ->updateRules('unique:users,email,{{resourceId}}'),
 
-            Gravatar::make()->maxWidth(50),
+            // Gravatar::make()->maxWidth(50),
 
             Text::make('username')
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Text::make('Email')
-                ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
-
-            Password::make('Password')
+           Text::make('phone')
+              ->sortable()
+              ->rules('required', 'max:255'),
+           Text::make('role'),  
+           Boolean::make('status')
+           ->trueValue('1')
+           ->falseValue('0'),
+           Boolean::make('chat_status')
+           ->trueValue('1')
+           ->falseValue('0'), 
+           Password::make('Password')
                 ->onlyOnForms()
                 ->creationRules('required', Rules\Password::defaults())
                 ->updateRules('nullable', Rules\Password::defaults()),
